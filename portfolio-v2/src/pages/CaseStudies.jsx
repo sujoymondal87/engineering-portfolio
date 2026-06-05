@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 
 import Card from '../components/Card';
 import Layout from "../components/Layout";
+import SEO from '../components/SEO'
 
 
 export default function CaseStudy() {
@@ -26,6 +27,11 @@ export default function CaseStudy() {
     }, [])
     return (
         <Layout>
+            <SEO 
+            title="Case Studies"
+            description="Engineering decisions from 10+ years of production systems. Offline-first, AI orchestration, browser AR, analytics, payments and more."
+            url="/case-studies"
+            />
             <div className="py-6 md:py-16">
                 <p className="text-amber-500 text-sm font-mono mb-4">Case Studies</p>
                 <h1 className="text-4xl font-bold text-white mb-10">Engineering decisions. In public.</h1>
