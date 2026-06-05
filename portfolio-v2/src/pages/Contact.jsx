@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
 import toast from 'react-hot-toast'
+import SEO from '../components/SEO'
 import { FiMail, FiArrowRight, FiSend } from 'react-icons/fi'
 import { FaLinkedin, FaGithub, FaReact, FaNode } from 'react-icons/fa'
 import { SiVite, SiExpress, SiPostgresql, SiSupabase, SiTailwindcss, SiVercel, SiRailway, SiDocker, SiPhp, SiMysql, SiRedis, SiTypescript, SiJavascript, SiStripe, SiDigitalocean, SiGit,SiPaypal, SiOpenai, SiGooglegemini, SiClaude } from 'react-icons/si'
@@ -98,6 +99,11 @@ function Contact() {
 
   return (
     <Layout>
+      <SEO 
+        title="Contact"
+        description="Open to remote Senior Product Engineer, Founding Engineer and Systems Architect roles. Get in touch with Sujoy Mondal."
+        url="/contact"
+      />
       <div className="py-6 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
           
