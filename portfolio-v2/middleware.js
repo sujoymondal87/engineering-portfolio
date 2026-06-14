@@ -39,19 +39,16 @@ export default async function middleware(request) {
 
         const htmlRes = await fetch(new URL('/', request.url).toString())
         let html = await htmlRes.text()
-
-        const ogTags = `
-    <meta property="og:title" content="${title}" />
-    <meta property="og:description" content="${description}" />
-    <meta property="og:image" content="${image}" />
-    <meta property="og:url" content="${pageUrl}" />
-    <meta property="og:type" content="article" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${title}" />
-    <meta name="twitter:description" content="${description}" />
-    <meta name="twitter:image" content="${image}" />
-`
-        html = html.replace('</head>', `${ogTags}</head>`)
+        
+        html = html
+        .replace(/<meta property="og:title"[^>]*>/i, `<meta property="og:title" content="${title}" />`)
+        .replace(/<meta property="og:description"[^>]*>/i, `<meta property="og:description" content="${description}" />`)
+        .replace(/<meta property="og:image"[^>]*>/i, `<meta property="og:image" content="${image}" />`)
+        .replace(/<meta property="og:url"[^>]*>/i, `<meta property="og:url" content="${pageUrl}" />`)
+        .replace(/<meta property="og:type"[^>]*>/i, `<meta property="og:type" content="article" />`)
+        .replace(/<meta name="twitter:title"[^>]*>/i, `<meta name="twitter:title" content="${title}" />`)
+        .replace(/<meta name="twitter:description"[^>]*>/i, `<meta name="twitter:description" content="${description}" />`)
+        .replace(/<meta name="twitter:image"[^>]*>/i, `<meta name="twitter:image" content="${image}" />`)
 
         return new Response(html, {
             headers: { 'content-type': 'text/html' }
