@@ -1,4 +1,4 @@
-// v2 of the middleware file
+// v5 of the middleware file
 const SUPABASE_URL = globalThis.SUPABASE_URL ?? process.env.SUPABASE_URL
 const SUPABASE_ANON_KEY = globalThis.SUPABASE_ANON_KEY ?? process.env.SUPABASE_ANON_KEY
 
@@ -24,17 +24,16 @@ export default async function middleware(request) {
         )
         const posts = await res.json()
         const post = posts?.[0]
-        
-        const coverImage = post.post_images?.length > 0
-            ? post.post_images.sort((a, b) => a.sort_order - b.sort_order)[0].url
-            : post.imgurl ?? ''
 
         if (!post) {
-            // fall through to SPA
             const htmlRes = await fetch(new URL('/', request.url).toString())
             const html = await htmlRes.text()
             return new Response(html, { headers: { 'content-type': 'text/html' } })
         }
+
+        const coverImage = post.post_images?.length > 0
+            ? post.post_images.sort((a, b) => a.sort_order - b.sort_order)[0].url
+            : post.imgurl ?? ''
 
         const title = post.title
         const description = (post.content ?? '')

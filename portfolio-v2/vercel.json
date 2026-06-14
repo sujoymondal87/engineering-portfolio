@@ -1,6 +1,5 @@
 {
   "rewrites": [
-    { "source": "/case-studies/:slug", "destination": "/case-studies/:slug" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
