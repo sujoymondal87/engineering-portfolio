@@ -15,6 +15,8 @@ export default function CaseStudy() {
                 .from('posts')
                 .select('*, post_images(url, sort_order)', { count: 'exact' })
                 .eq('post_images.sort_order', 0)
+                .order('featured', { ascending: false })
+                .order('home_sort_order', { ascending: true, nullsFirst: false })
                 .order('created_at', { ascending: false })
                 .limit(6)
                 setTotalPosts(count)

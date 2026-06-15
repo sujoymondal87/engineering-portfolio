@@ -32,7 +32,17 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <img src="/sujoy.jpg" alt="Sujoy Mondal" className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover mt-4 md:mt-0 mx-auto md:mx-0 flex-shrink-0" />
+                <div className="flex-shrink-0 mt-4 md:mt-0 mx-auto md:mx-0">
+                    <div className="rounded-full p-[3px] bg-gradient-to-br from-amber-500 via-amber-300 to-transparent">
+                        <div className="rounded-full p-[2px] bg-gray-950">
+                            <img 
+                                src="/sujoy.jpg" 
+                                alt="Sujoy Mondal" 
+                                className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
