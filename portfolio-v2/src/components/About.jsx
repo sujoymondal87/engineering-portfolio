@@ -12,7 +12,7 @@ export default function About() {
                 <div className="text-4xl font-bold text-amber-500">15+</div>
                 <div className="text-sm text-gray-400 mt-1">Years Building Production Systems</div>
             </div>
-            <div className="p-6 border-r md:border-r-0 border-b md:border-b-0 border-gray-800">
+            <div className="p-6 border-r border-b md:border-b-0 border-gray-800">
                 <div className="text-4xl font-bold text-amber-500">10+</div>
                 <div className="text-sm text-gray-400 mt-1">Years as Co-Founder & CTO</div>
             </div>
