@@ -17,8 +17,8 @@ export default function About() {
                 <div className="text-sm text-gray-400 mt-1">Years as Co-Founder & CTO</div>
             </div>
             <div className="p-6 border-r border-gray-800">
-                <div className="text-4xl font-bold text-amber-500">35+</div>
-                <div className="text-sm text-gray-400 mt-1">Countries. Global Reach.</div>
+                <div className="text-4xl font-bold text-amber-500">30+</div>
+                <div className="text-sm text-gray-400 mt-1">Production Applications Live</div>
             </div>
             <div className="p-6">
                 <div className="text-4xl font-bold text-amber-500">609</div>

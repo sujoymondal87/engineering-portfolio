@@ -30,6 +30,10 @@ export default function Hero() {
                             ))}
                         </div>
                     </div>
+                    <p className="text-gray-400 text-sm mt-2">
+                        Available for remote opportunities · {' '}
+                        <a href="/contact" className="text-amber-500 hover:underline">Get in touch →</a>
+                    </p>
                 </div>
 
                 <div className="flex-shrink-0 mt-4 md:mt-0 mx-auto md:mx-0">
