@@ -10,7 +10,7 @@ from 15+ years of software development.
 - Frontend: React, Vite, Tailwind CSS
 - Backend: Node.js, Express
 - Database: PostgreSQL, Supabase
-- Deployment: Vercel (frontend), Railway (backend)
+- Deployment: Vercel (frontend), Render (backend)
 - Auth: Supabase Auth
 - Storage: Supabase Storage
 
