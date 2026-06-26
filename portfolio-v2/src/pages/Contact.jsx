@@ -66,7 +66,7 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    fetch('https://reactgitlearning-production.up.railway.app/contact', {
+    fetch('https://engineering-portfolio-de9i.onrender.com/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
