@@ -16,7 +16,7 @@ Every case study on this site is extracted from a real production constraint: th
 
 ## Engineering Portfolio Ecosystem
 
-![Ecosystem Diagram](./portfolio_v2/screenshots/ecosystem.png)
+![Ecosystem Diagram](./portfolio-v2/screenshots/ecosystem.png)
 
 The portfolio is not a standalone artifact. Every piece supports every other:
 
