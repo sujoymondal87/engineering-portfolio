@@ -6,27 +6,42 @@
 
 ---
 
-## Screenshots
+## Why this exists
 
-### Home
-![Home](./portfolio-v2/screenshots/home.png)
+Traditional portfolios describe projects. This portfolio documents the engineering decisions behind production systems — and links every case study to a runnable implementation and source repository.
 
-### Case Study
-![Case Study](./portfolio-v2/screenshots/case-study.png)
-
-### Contact
-![Contact](./portfolio-v2/screenshots/contact.png)
-
-### Admin Panel
-![Admin](./portfolio-v2/screenshots/admin.png)
+Every case study on this site is extracted from a real production constraint: the problem that existed, the decision that was made, the tradeoff that was accepted, and the outcome. The writing is the work.
 
 ---
 
-## What this is
+## Engineering Portfolio Ecosystem
 
-A production-grade portfolio and publishing platform — built from scratch, not assembled from a template. Case studies are authored through a protected admin panel, stored in Supabase PostgreSQL, and rendered on the frontend with full SEO metadata per page.
+![Ecosystem Diagram](./portfolio_v2/screenshots/ecosystem.png)
 
-The platform serves as both a professional portfolio and a live demonstration of full-stack engineering — authentication, content management, image storage, SEO, and CI/CD all running in production.
+The portfolio is not a standalone artifact. Every piece supports every other:
+
+- **Production experience** → becomes a case study
+- **Case study** → published to the portfolio, linked to a GitHub repo, shared on LinkedIn
+- **GitHub repo** → deploys a live demo as runnable proof
+- **LinkedIn** → drives traffic back to the portfolio
+- **Portfolio** → sends recruiters and hiring engineers to the right evidence for their context
+- **Everything** → feeds into the interview
+
+---
+
+## Screenshots
+
+### Home
+![Home](./portfolio_v2/screenshots/home.png)
+
+### Case Study
+![Case Study](./portfolio_v2/screenshots/case-study.png)
+
+### Contact
+![Contact](./portfolio_v2/screenshots/contact.png)
+
+### Admin Panel
+![Admin](./portfolio_v2/screenshots/admin.png)
 
 ---
 
@@ -58,6 +73,22 @@ The platform serves as both a professional portfolio and a live demonstration of
 
 ---
 
+## Architecture Decisions
+
+**Why a custom CMS instead of a static site generator (Jekyll, Hugo, Astro)?**
+Static site generators treat content as files in a repository — every edit is a commit, every publish is a deploy. A custom admin panel with a database backend separates content management from code deployment. Case studies can be drafted, edited, and published without touching the codebase or triggering a build pipeline.
+
+**Why Supabase PostgreSQL instead of a headless CMS (Contentful, Sanity)?**
+Third-party CMS platforms add cost, vendor lock-in, and a separate auth system to manage. Supabase provides a PostgreSQL database, auth, and file storage in one platform — all accessible via a single service key. The data model is simple enough (posts, systems) that a custom schema is faster to work with than a CMS content model.
+
+**Why separate repositories for each demo system?**
+Each demo repo (ai-orchestration-middleware, offline-first-browser-runtime, websocket-audio-sync) is independently deployable, has its own README and build brief, and tells a self-contained engineering story. Monorepo alternatives would couple deployment pipelines and blur the narrative boundary between systems.
+
+**Why case studies instead of a project list?**
+A project list answers "what did you build?" A case study answers "what problem existed, what did you decide, what did you trade off, and what was the outcome?" The second answer is what an engineering interview actually tests.
+
+---
+
 ## Quick start
 
 **Prerequisites:** Node.js >= 22 · npm >= 10
@@ -79,31 +110,37 @@ npm install
 npm run dev
 ```
 
+Verify the backend is live:
+```bash
+curl http://localhost:3000/health
+```
+
 ---
 
 ## Environment variables
 
 ### Backend (Render)
 
-| Key | Required | Description |
-|---|---|---|
-| `SUPABASE_URL` | Yes | From Supabase project settings |
-| `SUPABASE_SERVICE_KEY` | Yes | Service role key |
-| `RESEND_API_KEY` | Yes | For contact form emails |
-| `PORT` | No | Default 3000 |
-| `NODE_VERSION` | Render only | 22.11.0 |
+| Key | Required | Default | Description |
+|---|---|---|---|
+| `SUPABASE_URL` | Yes | — | From Supabase project settings |
+| `SUPABASE_SERVICE_KEY` | Yes | — | Service role key |
+| `RESEND_API_KEY` | Yes | — | For contact form emails |
+| `PORT` | No | `3000` | Server port |
+| `NODE_VERSION` | Render only | `22.11.0` | Pin Node version on Render |
 
 ### Frontend (Vercel)
 
-| Key | Required | Description |
-|---|---|---|
-| `VITE_API_URL` | Yes | Backend URL |
+| Key | Required | Default | Description |
+|---|---|---|---|
+| `VITE_API_URL` | Yes | — | Backend URL e.g. `https://your-backend.onrender.com` |
 
 ---
 
 ## Deployment
 
 ### Frontend (Vercel)
+
 | Setting | Value |
 |---|---|
 | Root directory | `frontend` |
@@ -111,11 +148,13 @@ npm run dev
 | Output directory | `dist` |
 
 ### Backend (Render)
+
 | Setting | Value |
 |---|---|
 | Root directory | `backend` |
 | Build command | `npm install` |
 | Start command | `npm start` |
+| Node version | `22.11.0` |
 
 ---
 
@@ -123,7 +162,7 @@ npm run dev
 
 Built to document 10 years of solo engineering on Neareo/MyAppZone — a no-code app platform serving museums, cultural institutions, and tourism organisations across Spain, France, and Belgium. The platform runs 30+ live applications with 600+ verified reviews from users across 35+ countries.
 
-Every case study on this site documents a real production decision — the constraint, the tradeoff, the outcome.
+Every architectural decision, implementation, debugging session, and production deployment over the last decade came from one engineer. This portfolio is where that work is documented.
 
 ---
 
