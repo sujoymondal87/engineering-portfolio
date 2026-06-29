@@ -32,16 +32,16 @@ The portfolio is not a standalone artifact. Every piece supports every other:
 ## Screenshots
 
 ### Home
-![Home](./portfolio_v2/screenshots/home.png)
+![Home](./portfolio-v2/screenshots/home.png)
 
 ### Case Study
-![Case Study](./portfolio_v2/screenshots/case-study.png)
+![Case Study](./portfolio-v2/screenshots/case-study.png)
 
 ### Contact
-![Contact](./portfolio_v2/screenshots/contact.png)
+![Contact](./portfolio-v2/screenshots/contact.png)
 
 ### Admin Panel
-![Admin](./portfolio_v2/screenshots/admin.png)
+![Admin](./portfolio-v2/screenshots/admin.png)
 
 ---
 
