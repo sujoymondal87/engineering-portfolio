@@ -5,10 +5,11 @@ import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Admin from './pages/Admin'
 import AdminLogin from './pages/AdminLogin'
-import System from './pages/System'
+import Systems from './pages/Systems'
 import SystemDetails from './pages/SystemDetails'
 import CaseStudies from './pages/CaseStudies'
 import CaseStudiesDetails from './pages/CaseStudiesDetails'
+import Posts from './pages/Posts'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import AdminLayout from './components/AdminLayout.jsx'
@@ -16,7 +17,7 @@ import SystemsAdmin from './pages/SystemsAdmin'
 import PostsAdmin from './pages/PostsAdmin'
 import CreatePostAdmin from './pages/CreatePostAdmin'
 import { Toaster } from 'react-hot-toast'
-// import CreateSystemAdmin from './pages/CreateSystemAdmin'
+import CreateSystemAdmin from './pages/CreateSystemAdmin'
 
 function AppContent() {
   const location = useLocation()
@@ -28,10 +29,12 @@ function AppContent() {
       <Toaster />
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/system" element={<System/>} />
+        <Route path="/systems" element={<Systems/>} />
         <Route path="/systems/:slug" element={<SystemDetails/>} />
         <Route path="/case-studies" element={<CaseStudies/>} />
         <Route path="/case-studies/:slug" element={<CaseStudiesDetails/>} />
+        <Route path="/posts" element={<Posts/>} />
+        <Route path="/posts/:slug" element={<CaseStudiesDetails/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/admin" element={
           <ProtectedRoute>
@@ -44,7 +47,8 @@ function AppContent() {
           <Route path="posts/create" element={<CreatePostAdmin/>} /> 
           <Route path="posts/edit/:slug" element={<CreatePostAdmin/>} />
           <Route path="systems" element={<SystemsAdmin/>} />
-          {/*<Route path="systems/create" element={<CreateSystemAdmin/>} /> */}
+          <Route path="systems/create" element={<CreateSystemAdmin/>} />
+          <Route path="systems/edit/:slug" element={<CreateSystemAdmin/>} />
         </Route>
         <Route path="/admin/login" element={<AdminLogin/>} />
       </Routes>
