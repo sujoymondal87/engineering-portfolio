@@ -17,6 +17,7 @@ export default function CaseStudy() {
                 const { data, error } = await supabase
                 .from('posts')
                 .select('*, post_images(url, sort_order)')
+                .eq('category', 'casestudy')
                 .order('created_at', { ascending: false })
                 if(error) throw error
                 setPosts(data)

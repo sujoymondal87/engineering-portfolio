@@ -41,15 +41,15 @@ export default function CaseStudiesDetails() {
             {error && <p className="text-red-400 p-8">Error: {error}</p>}
             {post && (
                 <Layout>
-                    <SEO 
+                    <SEO
                     title={post.title}
                     description={post.content?.slice(0, 155)}
-                    url={`/case-studies/${post.slug}`}
+                    url={`/${post.category === 'casestudy' ? 'case-studies' : 'posts'}/${post.slug}`}
                     />
                     <div className="py-6 md:py-16">
                         {/* Back button */}
-                        <Link to="/case-studies" className="inline-flex items-center gap-2 text-amber-500 text-sm font-mono hover:underline mb-10 block">
-                            ← Back to Case Studies
+                        <Link to={post.category === 'casestudy' ? '/case-studies' : '/posts'} className="inline-flex items-center gap-2 text-amber-500 text-sm font-mono hover:underline mb-10 block">
+                            ← Back to {post.category === 'casestudy' ? 'Case Studies' : 'Engineering Notes'}
                         </Link>
     
                         {/* Title */}

@@ -15,7 +15,8 @@ export default function PostsTable({posts, loading, error , onDelete}) {
                 <thead className="bg-gray-800 text-gray-300 uppercase text-xs">
                 <tr>
                     <th className="px-6 py-3 w-1/4">Title</th>
-                    <th className="px-6 py-3 w-1/2">Content</th>
+                    <th className="px-6 py-3 w-1/3">Content</th>
+                    <th className="px-6 py-3 w-[15%]">Category</th>
                     <th className="px-6 py-3 w-1/4">Actions</th>
                 </tr>
                 </thead>
@@ -24,6 +25,7 @@ export default function PostsTable({posts, loading, error , onDelete}) {
                     <tr key={post.id} className="bg-gray-900 hover:bg-gray-800 transition">
                     <td className="px-6 py-4 text-white font-medium">{post.title}</td>
                     <td className="px-6 py-4 text-gray-300">{post.content?.slice(0, 150)}...</td>
+                    <td className="px-6 py-4 text-gray-300">{post.category === 'casestudy' ? 'Case Study' : 'Post'}</td>
                     <td className="px-6 py-4">
                         <div className="flex gap-2">
                             <button className="flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm transition" 
@@ -39,7 +41,7 @@ export default function PostsTable({posts, loading, error , onDelete}) {
                     </tr>
                 )) : (
                     <tr>
-                    <td colSpan={3} className="px-6 py-8 text-center text-gray-500">No posts found</td>
+                    <td colSpan={4} className="px-6 py-8 text-center text-gray-500">No posts found</td>
                     </tr>
                 )}
                 </tbody>

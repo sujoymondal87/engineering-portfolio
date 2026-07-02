@@ -29,6 +29,7 @@ export default function CreatePostAdmin() {
     const [existingImages, setExistingImages] = useState([]) // loaded in edit mode from post_images
     const [slug, setSlug] = useState('')
     const [featured, setFeatured] = useState(false)
+    const [category, setCategory] = useState('')
     const [error, setError] = useState('')
     const [success, setSuccess] = useState(false)
     const [submitting, setSubmitting] = useState(false)
@@ -49,6 +50,7 @@ export default function CreatePostAdmin() {
                 setContent(data.content)
                 setSlug(data.slug)
                 setFeatured(data.featured || false)
+                setCategory(data.category || '')
 
                 // fetch existing images from post_images table
                 const { data: images, error: imgError } = await supabase
@@ -115,13 +117,13 @@ export default function CreatePostAdmin() {
 
                 const { error: updateError } = await supabase
                     .from('posts')
-                    .update({ title, content, slug, featured })
+                    .update({ title, content, slug, featured, category: category || null })
                     .eq('slug', slugValue)
                 if (updateError) throw updateError
             } else {
                 const { data: inserted, error: insertError } = await supabase
                     .from('posts')
-                    .insert({ title, content, slug, featured })
+                    .insert({ title, content, slug, featured, category: category || null })
                     .select('id')
                     .single()
                 if (insertError) throw insertError
@@ -236,6 +238,19 @@ export default function CreatePostAdmin() {
                             onChange={(e) => setContent(e.target.value)}
                             placeholder="Write your post content here..."
                         />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="category" className="font-semibold text-gray-700">Category</label>
+                        <select
+                            className="border border-gray-300 focus:border-blue-500 rounded-md p-2 transition duration-150 focus:outline-none text-black"
+                            id="category"
+                            value={category}
+                            onChange={(e) => setCategory(e.target.value)}
+                        >
+                            <option value="">Post</option>
+                            <option value="casestudy">Case Study</option>
+                        </select>
                     </div>
 
                     {/* Featured toggle */}
