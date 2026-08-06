@@ -13,7 +13,7 @@ export default function Hero() {
                         <a href="/case-studies" className="bg-amber-500 hover:bg-amber-600 text-gray-950 font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm">
                             View Case Studies
                         </a>
-                        <a href="/Sujoy_Mondal_CV_v2.0.pdf" download className="border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-950 font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm">
+                        <a href="/Sujoy_Mondal-cv.pdf" download className="border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-gray-950 font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm">
                             Download CV
                         </a>
                         <span className="text-gray-500 text-xs font-mono">2-page PDF · Updated June 2026</span>

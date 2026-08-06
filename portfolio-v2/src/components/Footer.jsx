@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
+import { FiMail, FiPhone } from 'react-icons/fi'
 
 export default function Footer() {
     return (
@@ -22,6 +23,8 @@ export default function Footer() {
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="text-white text-sm font-semibold mb-1">Connect</p>
+                        <a className="text-gray-300 text-sm hover:text-amber-500 transition flex items-center gap-2" href="mailto:sujoymondal87@gmail.com"><FiMail />sujoymondal87@gmail.com</a>
+                        <a className="text-gray-300 text-sm hover:text-amber-500 transition flex items-center gap-2" href="tel:+918537019831"><FiPhone />+91 8537019831</a>
                         <a className="text-gray-300 text-sm hover:text-amber-500 transition flex items-center gap-2" href="https://linkedin.com/in/sujoymondal-tech" target="_blank" rel="noreferrer"><FaLinkedin />LinkedIn</a>
                         <a className="text-gray-300 text-sm hover:text-amber-500 transition flex items-center gap-2" href="https://github.com/sujoymondal87" target="_blank" rel="noreferrer"><FaGithub />GitHub</a>
                     </div>
