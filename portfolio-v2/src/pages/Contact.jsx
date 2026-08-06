@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "../components/Layout";
 import toast from 'react-hot-toast'
 import SEO from '../components/SEO'
-import { FiMail, FiArrowRight, FiSend } from 'react-icons/fi'
+import { FiMail, FiPhone, FiArrowRight, FiSend } from 'react-icons/fi'
 import { FaLinkedin, FaGithub, FaReact, FaNode } from 'react-icons/fa'
 import { SiVite, SiExpress, SiPostgresql, SiSupabase, SiTailwindcss, SiVercel, SiRailway, SiDocker, SiPhp, SiMysql, SiRedis, SiTypescript, SiJavascript, SiStripe, SiDigitalocean, SiGit,SiPaypal, SiOpenai, SiGooglegemini, SiClaude } from 'react-icons/si'
 
@@ -152,6 +152,14 @@ function Contact() {
                 <div>
                   <p className="text-white text-sm font-medium">Email</p>
                   <p className="text-gray-400 text-sm">sujoymondal87@gmail.com</p>
+                </div>
+                <FiArrowRight className="ml-auto text-gray-600 group-hover:text-amber-500 transition" />
+              </a>
+              <a href="tel:+918537019831" className="flex items-center gap-4 p-4 border border-gray-800 rounded-lg hover:border-amber-500 transition group">
+                <div className="text-amber-500"><FiPhone size={20} /></div>
+                <div>
+                  <p className="text-white text-sm font-medium">Phone</p>
+                  <p className="text-gray-400 text-sm">+91 8537019831</p>
                 </div>
                 <FiArrowRight className="ml-auto text-gray-600 group-hover:text-amber-500 transition" />
               </a>
